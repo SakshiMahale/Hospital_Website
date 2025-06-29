@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SignUp/Login-Form</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    crossorigin="anonymous">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../styles/style.css">
+  <style>
+    body::before {
+      content: "";
+      display: block;
+      height: 70px;
+      /* Matches navbar height */
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 999;
+      background-color: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      height: 70px;
+      display: flex;
+      align-items: center;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+      <img src="../images/logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="logo">
+      <b>Life Hospital</b>
+    </a>
+    <div class="navbar-expand-lg">
+      <ul class="navbar-nav">
+        <li class="nav-item active"><a class="nav-link" href="../html_pages/h_index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="../html_pages/h_index.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="../html_pages/h_index.html">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="../html_pages/h_index.html">Doctors</a></li>
+        <li class="nav-item"><a class="nav-link" href="../html_pages/h_index.html">Pages</a></li>
+        <li class="nav-item"><a class="nav-link" href="../html_pages/h_index.html">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="../html_pages/Voice.html"><img src="../images/voice.png"
+              alt="Voice Icon" width="30" height="30"></a></li>
+        <li class="nav-item">
+          <a href="../html_pages/SignUp.html"><button type="button" class="btn btn-signup">Sign-Up</button></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="form-box">
+      <div class="button-box">
+        <div id="btn1"></div>
+        <button type="button" class="toggle-btn" onclick="login()">Log In</button>
+        <button type="button" class="toggle-btn" onclick="register()">Register</button>
+      </div>
+
+      <form id="login" class="input-group1">
+        <input type="text" class="input-field" placeholder="User ID" required>
+        <input type="text" class="input-field" placeholder="Enter Password" required>
+        <input type="checkbox" class="check-box"><span>Remember Password</span>
+        <button type="submit" class="submit-btn1">LOG IN</button>
+      </form>
+
+      <form id="register" class="input-group1">
+        <input type="text" class="input-field" placeholder="User ID" required>
+        <input type="email" class="input-field" placeholder="Enter email" required>
+        <input type="checkbox" class="check-box"><span>I agree to the terms and conditions</span>
+        <button type="submit" class="submit-btn1">Register</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    var x = document.getElementById("login");
+    var y = document.getElementById("register");
+    var z = document.getElementById("btn1");
+
+    function register() {
+      x.style.left = "-400px";
+      y.style.left = "50px";
+      z.style.left = "110px";
+    }
+
+    function login() {
+      x.style.left = "50px";
+      y.style.left = "450px";
+      z.style.left = "0px";
+    }
+  </script>
+
+  <!-- Bootstrap Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

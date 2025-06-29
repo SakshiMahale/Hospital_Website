@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../styles/style.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../images/favicon-16x16.png">
+
+    <style>
+        body::before {
+            content: "";
+            display: block;
+            height: 70px;
+            /* Matches navbar height */
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 999;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            height: 70px;
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="index">
+        <!-- Navbar -->
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" href="#">
+                <img src="../images/logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="logo">
+                <b>Life Hospital</b>
+            </a>
+            <div class="navbar-expand-lg">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#home">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#doctors">Doctors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pages">Pages</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+
+                    <!-- Voice Icon Link -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="../html_pages/Voice.html">
+                            <img src="../images/voice.png" alt="Voice Icon" width="30" height="30"
+                                style="vertical-align: middle;">
+                        </a>
+                    </li>
+
+                    <!-- Sign-Up Button -->
+                    <li class="nav-item">
+                        <a href="../html_pages/SignUp.html">
+                            <button type="button" class="btn btn-signup">Sign-Up</button>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <!---------------------Home----------------------------------->
+
+    <div class="image" id="home">
+        <img src="../images/doctors.avif" height="500" width="100%">
+    </div>
+    <div class="textbox">
+        <h1> Your Most Trusted Health-Partner</h1>
+        <p>An institution that is built, staffed, and equipped for the diagnosis of disease; for the treatment,
+            both medical and surgical, of the sick and the injured; and for their housing during this process.
+            The modern hospital also often serves as a centre for investigation and for teaching.
+            Our main motive is the Heath of the patient and for this purpose we have the best of equipments as well
+            as
+            doctors</p>
+    </div>
+    <div class="btn2">
+        <button type="button" class="btn btn-outline-primary">Learn More</button>
+    </div>
+    <!------------------------About Us------------------------------------------>
+    <section id="about" class="about py">
+        <div class="about-inner">
+            <div class="container grid">
+                <div class="about-left text-center">
+                    <div class="section-head">
+                        <h1><b>About Us</b></h1>
+                        <div class="border-line"></div>
+                    </div>
+                    <p class="text text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Recusandae molestias delectus facilis, temporibus eum consectetur, a debitis exercitationem
+                        quae distinctio aliquid ea ipsam vitae esse amet soluta maxime dolorem? Inventore ut maiores
+                        illo ipsum
+                        nisi, nulla eligendi unde reiciendis quod voluptas velit sit voluptate perferendis cum
+                        pariatur
+                        molestiae tenetur repellat!</p>
+                    <button type="button" class="btn btn-outline-primary" href="#">Learn More</button>
+                </div>
+
+            </div>
+        </div>
+        </div>
+    </section>
+    <br>
+    <div class="about-left flex">
+        <div class="img">
+            <img src="../images/Hospital.png " height="70%" width="80%">
+        </div>
+
+        <!-------------------------------Banner Section in about us---------------------------------------------->
+        <div class="container">
+            <img src="../images/h_wallpaper1.jpg" height="400px" width="100%">
+            <div class="content">
+                <h1>CARE! NUTURE! PROTECT!</h1>
+                <p>You may be treated by a number of doctors during your hospital stay – the consultant (specialist),
+                    the registrar and the resident.
+                    Together they assess and manage your medical care. Depending on which hospital you are in,
+                    you may also be treated by interns and student doctors who work under the supervision of the senior
+                    doctors.
+                    Nurses manage most of your ongoing care and treatment in hospital. They assess, plan and administer
+                    your daily treatment and
+                    manage your general health. Speak to them about your immediate needs. They can also direct you to
+                    the right people to speak
+                    to about specific medical issues.</p>
+            </div>
+        </div>
+        <br>
+        <!-------------------------------------The services section-------------------------------------------------------------------->
+        <div class="allServices" id="services">
+            <h1 class="heading">Our Services</h1>
+            <section class="services">
+
+
+
+                <div class="container">
+                    <h2>Outpatient Services</h2>
+
+                    <ul>
+                        <li>Physician OPD</li>
+                        <li>Specialist OPD</li>
+                        <li>Superspecialist OPD</li>
+                        <li>Physiotherapy Services</li>
+                        <li>Counseling Services</li>
+
+                    </ul>
+
+                    <h2>Inpatient Facilities</h2>
+
+                    <ul>
+                        <li>Total number of beds (40)</li>
+                        <li>General Ward (15)</li>
+                        <li>Private rooms (4)</li>
+                        <li>Deluxe/VIP Rooms (4)</li>
+                    </ul>
+
+                    <h2>Operative Facilities</h2>
+
+                    <ul>
+                        <li>Major Operation Theater</li>
+                        <li>Minor Operation Theater</li>
+                        <li>Endoscopy Room</li>
+                    </ul>
+                </div>
+                <div class="image2">
+                    <img src="../images/doc.webp" width="30%" height="500px">
+
+                </div>
+                <div class="s2">
+                    <div class="container">
+                        <h2>Amenities</h2>
+
+                        <ul>
+                            <li>Pantry/Cafe/Restaurant</li>
+                            <li>Security Staff</li>
+                            <li>Nursing Room</li>
+                            <li>Nursing Room</li>
+                        </ul>
+
+                        <h2>Appointment Management</h2>
+
+                        <ul>
+                            <li>Walk-in Appointments</li>
+                            <li>Phone Appointments</li>
+                            <li>Online Appointment</li>
+                            <li>Appointment Reminders</li>
+                        </ul>
+
+                        <h2>Specialist Services</h2>
+
+                        <ul>
+                            <li>Pain Clinic</li>
+                            <li>Orthoscopy</li>
+                            <li>Spine Surgery</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <br>
+        <h1 class="heading" id="doctors">Our Doctors</h1>
+        <!---------------The doctors section ------------------------------------------>
+
+        <section class="doctor py">
+
+
+            <div class="doctor">
+
+                <div class="card">
+                    <img src="../images/doc1.jfif" height="200px" width="200px">
+                    <div class="container3">
+                        Dr. Shilpa Vashisht
+                        <h2>Neurologist</h2>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="../images/doc2.jpg" height="200px" width="200px">
+                    <div class="container3">
+                        Dr.Rishikesh Soni
+                        <h2>Surgeon</h2>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="../images/doc4.jpg" height="200px" width="200px">
+                    <div class="container3">
+                        Dr. Kritika Desai
+                        <h2> Cardiologist</h2>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="../images/doc4.jfif" height="200px" width="220px">
+                    <div class="container3">
+                        Dr. Sanam Mirza
+                        <h2>Pediatrician</h2>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="../images/doc6.jpg" height="200px" width="230px">
+                    <div class="container3">
+                        Dr. Ram Kulkarni
+                        <h2>Gynaecologist</h2>
+                    </div>
+
+        </section>
+        <!-------------------------The banner with info in doctors page------------------------->
+        <div class="team">
+            <img src="../images/doc_team1.jpg" height="300px">
+        </div>
+
+        <p id="pages">
+        <h6>All our specialized doctors have their own team to assist the patients throughtout
+            the hospital as well as to calm them while going throughtout the treatment. These
+            teams prove to be the very vital part in the patients treatment. We feel extremely
+            priviledged to have them as a part of our institute. These assists are extremely
+            qualified and great scholars in their own manners.You may be treated by a number of
+            doctors during your hospital stay – the consultant (specialist), the registrar and
+            the resident. Together they assess and manage your medical care. Depending on which
+            hospital you are in, you may also be treated by interns and student doctors who work
+            under the supervision of the senior doctors.Nurses manage most of your ongoing care
+            and treatment in hospital. They assess, plan and administer your daily treatment and
+            manage your general health. Speak to them about your immediate needs. They can also direct
+            you to the right people to speak to about specific medical issues.Allied health professionals
+            are university-educated practitioners who work as part of your multidisciplinary healthcare
+            team. They assess, diagnose and treat conditions and work to prevent disease and disability.
+            Keeping a hospital running requires a great deal of organisation and administration. During
+            your hospital stay, you will see a wide range of support and administrative staff taking care
+            of everything from laundry and meals to patient transport and maintenance.</h6>
+        </p>
+
+        <!-------------------------The slider with text in posts section -------------------------------------------->
+        <section class="pages py">
+            <h1 class="heading">Our Latest Posts</h1>
+            <div class="slideshow">
+                <img class="mySlides" src="../images/doc_help.webp">
+                <img class="mySlides" src="../images/dic1_help.jpg">
+                <img class="mySlides" src="../images/doc2_help.webp">
+            </div>
+
+            <div class="container">
+                <div class="text-box">
+                    <div class="hover">
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                            Cum voluptatum eaque nostrum optio voluptate inventore temporibus
+                            ullam placeat accusamus dolore animi reprehenderit delectus dicta, impedit, minima pariatur
+                            enim, nam dolorem!
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur nam unde aperiam rerum
+                            mollitia! Ea officia
+                            vel repellat, ipsum deleniti velit mollitia quasi eaque minus exercitationem error
+                            perferendis, dolore facere.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!--------------------The contact details------------------------------------->
+        <section id="contact" class="pages py">
+            <h1 class="heading">Contact Us</h1>
+            <div class="container">
+                <div class="row">
+                    <div class="column">
+                        <h2>Emergency Number</h2>
+                        <p>+221 9920437620</p>
+                    </div>
+                    <div class="column">
+                        <h2> Address</h2>
+                        <p>Opp Kalika Mandir, Khopoli(E)</p>
+                    </div>
+                    <div class="column">
+                        <h2> Hours</h2>
+                        <p>Morning:7-2</p>
+                        <p>Evening:3-12</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-----------------Form on Contacut US------------------------------->
+    </div>
+    <h3 class="head">Recommendations if any?</h3>
+    <div class="container">
+        <form class="form" action="/cgi-bin/miniproject.pl" method="Post" style:align="center">
+            <fieldset style="width:60%"><br>
+                <label for="name">
+                    <h5>Name:</h5>
+                </label>
+                <input type="text" id="name" name="name"><br><br>
+                <label for="email">
+                    <h5>Email:</h5>
+                </label>
+                <input type="text" id="email" name="email"><br><br><br>
+                <input type="submit" value="Submit"><br>
+    </div>
+    </fieldset>
+    </form>
+
+    </form>
+
+
+    </section>
+    </div>
+    <!-----------------BOOTSTRAP CDB LINKS----------------------------->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"
+        integrity="sha512-nnzkI2u2Dy6HMnzMIkh7CPd1KX445z38XIu4jG1jGw7x5tSL3VBjE44dY4ihMU1ijAQV930SPM12cCFrB18sVw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <script>
+
+        var myIndex = 0;
+        carousel();
+
+        function carousel() {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            myIndex++;
+            if (myIndex > x.length) { myIndex = 1 }
+            x[myIndex - 1].style.display = "block";
+            setTimeout(carousel, 1500); // Change image every 2 seconds
+        }
+    </script>
+
+</body>
+
+</html>
