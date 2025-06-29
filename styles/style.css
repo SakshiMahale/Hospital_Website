@@ -649,3 +649,64 @@ body {
     padding: 1rem;
   }
 }
+
+/*FOOTER*/
+/* Footer */
+.footer {
+  background: #000;
+  /* Black background */
+  color: #fff;
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Flex container for the footer */
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /* Space between sections */
+  align-items: flex-start;
+  /* Align items at the top */
+  max-width: 1200px;
+  max-height: 1400px;
+  margin: auto;
+}
+
+/* Each section in the footer */
+.footer-section {
+  flex: 1;
+  /* Each section takes equal space */
+  min-width: 250px;
+  /* Ensures sections don't shrink too much */
+  padding: 10px;
+  text-align: left;
+}
+
+/* Contact info styling */
+.contact-info p {
+  margin: 5px 0;
+}
+
+/* List styling */
+.footer-section ul {
+  list-style-type: disc;
+  /* Bullets for lists */
+  padding-left: 20px;
+}
+
+/* Highlighting "A collective benefit" */
+.footer-section h4 {
+  font-size: 18px;
+  font-weight: bold;
+  color: yellow;
+  /* Yellow text for emphasis */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    /* Stack sections vertically on small screens */
+  }
+}
