@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text-to-Speech Studio</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/static/styles/style.css">
+  <style>
+    body::before {
+      content: "";
+      display: block;
+      height: 70px;
+      /* Matches navbar height */
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 999;
+      background-color: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      height: 70px;
+      display: flex;
+      align-items: center;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+      <img src="../images/logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="logo">
+      <!---<img src="{{ url_for('static', filename='images/logo.jpg') }}" width="30" height="30">-->
+      <b>Life Hospital</b>
+    </a>
+    <div class="navbar-expand-lg">
+      <ul class="navbar-nav">
+        <li class="nav-item active"><a class="nav-link" href="/templates/h_index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/templates/h_index.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="/templates/h_index.html">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="/templates/h_index.html">Doctors</a></li>
+        <li class="nav-item"><a class="nav-link"href="/templates/h_index.html">Pages</a></li>
+        <li class="nav-item"><a class="nav-link" href="/templates/h_index.html">Contact</a></li>
+        <!--<img src="{{ url_for('static', filename='images/voice.png') }}" width="30" height="30">-->
+        <!-- Voice Icon Link -->
+         <!-- Voice Icon Link -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="/templates/Voice.html">
+                        <img src="/static/images/voice.png" alt="Voice Icon" width="30" height="30">
+                    </a>
+                    </li>
+        <!-- Sign-Up Button -->
+                      <li class="nav-item">                    
+                        <a href="../templates/SignUp.html">
+                        <button type="button" class="btn btn-signup">Sign-Up</button>
+                        </a>
+                    </li>
+      </ul>
+    </div>
+  </nav>
+
+    <div class="main-container">
+        <!-- Main Content Area -->
+        <div class="content-area">
+            <!-- Header -->
+            <div class="header-section">
+                <h1>Text/Audio-to-Speech Studio</h1>
+                <p>Convert your text or audio into natural-sounding speech</p>
+            </div>
+
+            <!-- Chat Interface -->
+            <div class="chat-container">
+                <!-- Chat Header -->
+                <div class="chat-header">
+                    <h3>Chat Assistant</h3>
+                </div>
+
+                <!-- Chat Messages -->
+                <div class="chat-messages" id="chatMessages">
+                    <!-- AI Message -->
+                    <div class="message">
+                        <div class="avatar ai">AI</div>
+                        <div class="message-content">
+                            <div class="message-bubble ai">
+                                <p class="mb-0">
+                                    Hello! I'm your text-to-speech assistant. You can type any
+                                    text below and I'll help you convert it to speech with the
+                                    voice settings you choose.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Text Input Section -->
+            <form id="textForm">
+                <div class="input-section">
+                    <input type="text" class="text-input" id="textInput"
+                        placeholder="Enter text to convert to speech..." />
+                    <button type="button" class="record-btn" id="recordBtn">
+                        <i class="bi bi-mic"></i>
+                    </button>
+                    <button type="button" class="send-btn" id="sendBtn">
+                        <i class="bi bi-arrow-up"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Right Sidebar -->
+        <div class="sidebar">
+            <!-- Sidebar Header -->
+            <div class="sidebar-header">
+                <div class="sidebar-title">
+                    <i class="bi bi-gear" style="font-size: 1.75rem"></i>
+                    <h2>Voice Settings</h2>
+                </div>
+                <p class="sidebar-subtitle">Configure your audio preferences</p>
+            </div>
+
+            <!-- Sidebar Content -->
+            <div class="sidebar-content">
+                <!-- Language Selector -->
+                <div class="setting-group">
+                    <label class="setting-label">Language & Accent</label>
+                    <select class="custom-select" id="languageSelect">
+                        <option value="">Select Language</option>
+                        <option value="english-uk">English</option>
+                        <option value="spanish">Hindi</option>
+                        <option value="french">Marathi</option>
+                    </select>
+                </div>
+
+                <!-- Audio Quality Progress Bar -->
+                <div class="setting-group">
+                    <label class="setting-label">Audio Quality</label>
+                    <input type="range" id="qualityRange" min="1" max="100" value="50" class="custom-range">
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script>
+        // State variables
+        let isRecording = false;
+        let isPlaying = false;
+        let currentText = "";
+
+        // DOM elements
+        const textInput = document.getElementById("textInput");
+        const recordBtn = document.getElementById("recordBtn");
+        const sendBtn = document.getElementById("sendBtn");
+        const chatMessages = document.getElementById("chatMessages");
+
+        // Text input handler
+        textInput.addEventListener("input", function () {
+            currentText = this.value;
+        });
+
+        // Record button handler
+        recordBtn.addEventListener("click", function () {
+            isRecording = !isRecording;
+
+            if (isRecording) {
+                recordBtn.classList.add("recording");
+                recordBtn.innerHTML = '<i class="bi bi-mic-mute"></i>';
+                textInput.focus();
+            } else {
+                recordBtn.classList.remove("recording");
+                recordBtn.innerHTML = '<i class="bi bi-mic"></i>';
+            }
+        });
+
+        // Send button handler
+        sendBtn.addEventListener("click", function () {
+            if (currentText.trim()) {
+                addUserMessage(currentText);
+                textInput.value = ""; // Clear input after submission
+                currentText = ""; // Reset current text
+            }
+        });
+
+        // Add user message to chat
+        function addUserMessage(text) {
+            const userMessage = `
+                <div class="message user" data-type="user">
+                    <div class="message-content">
+                        <div class="message-bubble user">
+                            <p class="mb-0">${text}</p>
+                        </div>
+                        <div><button class="btn btn-primary btn-sm play-btn" onclick="togglePlay('${text}', this)">
+                              <i class="bi bi-play"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="avatar user">U</div>
+                </div>
+            `;
+
+            chatMessages.insertAdjacentHTML("beforeend", userMessage);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Toggle play/stop audio function
+        function togglePlay(text, button) {
+            if (isPlaying) {
+                stopAudio();
+                button.innerHTML = '<i class="bi bi-play"></i>'; // Change to play icon
+                isPlaying = false;
+            } else {
+                playAudio(text);
+                button.innerHTML = '<i class="bi bi-stop"></i>'; // Change to stop icon
+                isPlaying = true;
+            }
+        }
+
+        // Play audio function
+        function playAudio(text) {
+            // Implement audio playback logic here
+            console.log("Playing audio for:", text);
+        }
+
+        // Stop audio function
+        function stopAudio() {
+            // Implement stop audio logic here
+            console.log("Stopping audio");
+        }
+
+        // Handle Enter key for submitting text
+        textInput.addEventListener("keypress", function (e) {
+            if (e.key === 'Enter') {
+                e.preventDefault(); // Prevent form submission
+                if (currentText.trim()) {
+                    addUserMessage(currentText);
+                    textInput.value = ""; // Clear input after submission
+                    currentText = ""; // Reset current text
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
