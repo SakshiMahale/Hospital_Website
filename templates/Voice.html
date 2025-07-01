@@ -18,6 +18,8 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/static/styles/style.css">
+ <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/static/images/favicon-16x16.png">
   <style>
     body::before {
       content: "";
@@ -44,8 +46,7 @@
   <!-- Navbar -->
   <nav class="navbar navbar-light bg-light">
     <a class="navbar-brand" href="#">
-      <img src="../images/logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="logo">
-      <!---<img src="{{ url_for('static', filename='images/logo.jpg') }}" width="30" height="30">-->
+      <img src="/static/images/logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="logo">
       <b>Life Hospital</b>
     </a>
     <div class="navbar-expand-lg">
@@ -259,6 +260,30 @@
             }
         });
     </script>
+    <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyDg1awZVmvK5mZII7DO5sy8HfFeDR9WKII",
+    authDomain: "hospital-web-84363.firebaseapp.com",
+    projectId: "hospital-web-84363",
+    storageBucket: "hospital-web-84363.firebasestorage.app",
+    messagingSenderId: "1077051122221",
+    appId: "1:1077051122221:web:2cddfe8da4da7e42178ea4",
+    measurementId: "G-V23Y8PXEGD"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
+
 </body>
 
 </html>

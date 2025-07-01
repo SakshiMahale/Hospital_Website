@@ -7,21 +7,21 @@
   <title>SignUp/Login-Form</title>
 
   <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-    crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
- <!-- Custom CSS -->
-    <link rel="stylesheet" href="/static/styles/style.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/static/styles/style.css">
+   <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/static/images/favicon-16x16.png">
   <style>
     body::before {
       content: "";
       display: block;
       height: 70px;
-      /* Matches navbar height */
     }
-
     .navbar {
       position: fixed;
       top: 0;
@@ -37,39 +37,36 @@
 </head>
 
 <body>
-    <div class="index">
-        <!-- Navbar -->
-        <nav class="navbar navbar-light bg-light">
-            <a class="navbar-brand" href="/h_index.html">
-                <img src="/static/images/logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="logo">
-            <b>Life Hospital</b>
-        </a>
-            <div class="navbar-expand-lg">
-                <ul class="navbar-nav">
-        <li class="nav-item active"><a class="nav-link" href="/templates/h_index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="/templates/h_index.html">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="/templates/h_index.html">Services</a></li>
-        <li class="nav-item"><a class="nav-link" href="/templates/h_index.html">Doctors</a></li>
-        <li class="nav-item"><a class="nav-link"href="/templates/h_index.html">Pages</a></li>
-        <li class="nav-item"><a class="nav-link" href="/templates/h_index.html">Contact</a></li>
-        <!--<img src="{{ url_for('static', filename='images/voice.png') }}" width="30" height="30">-->
-        <!-- Voice Icon Link -->
-         <!-- Voice Icon Link -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="/templates/Voice.html">
-                        <img src="/static/images/voice.png" alt="Voice Icon" width="30" height="30">
-                    </a>
-                    </li>
-        <!-- Sign-Up Button -->
-                      <li class="nav-item">                    
-                        <a href="../templates/SignUp.html">
-                        <button type="button" class="btn btn-signup">Sign-Up</button>
-                        </a>
-                    </li>
-      </ul>
-            </div>
-        </nav>
-    </div>
+  <div class="index">
+    <!-- Navbar -->
+    <nav class="navbar navbar-light bg-light">
+      <a class="navbar-brand" href="/h_index.html">
+        <img src="/static/images/logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="logo">
+        <b>Life Hospital</b>
+      </a>
+      <div class="navbar-expand-lg">
+        <ul class="navbar-nav">
+          <li class="nav-item active"><a class="nav-link" href="/templates/h_index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/templates/h_index.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="/templates/h_index.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="/templates/h_index.html">Doctors</a></li>
+          <li class="nav-item"><a class="nav-link" href="/templates/h_index.html">Pages</a></li>
+          <li class="nav-item"><a class="nav-link" href="/templates/h_index.html">Contact</a></li>
+          <li class="nav-item">
+            <a class="nav-link" href="/templates/Voice.html">
+              <img src="/static/images/voice.png" alt="Voice Icon" width="30" height="30">
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="../templates/SignUp.html">
+              <button type="button" class="btn btn-signup">Sign-Up</button>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
   <!-- Hero Section -->
   <div class="hero">
     <div class="form-box">
@@ -81,18 +78,61 @@
 
       <form id="login" class="input-group1">
         <input type="text" class="input-field" placeholder="User ID" required>
-        <input type="text" class="input-field" placeholder="Enter Password" required>
+        <input type="text" class="input-field" placeholder="Enter email" required>
         <input type="checkbox" class="check-box"><span>Remember Password</span>
         <button type="submit" class="submit-btn1">LOG IN</button>
       </form>
 
-      <form id="register" class="input-group1" method="POST" action="/register">
-        <input type="text" name="userid" class="input-field" placeholder="User ID" required>
-        <input type="email" name="email" class="input-field" placeholder="Enter email" required>
+      <form id="register" class="input-group1">
+  <input type="text" name="userid" class="input-field" placeholder="User ID" required>
+  <input type="email" name="email" class="input-field" placeholder="Email" required>
+  <input type="checkbox" class="check-box"><span>Remember Password</span>
+  <button type="submit" class="submit-btn1">REGISTER</button>
+</form>
+
     </div>
   </div>
 
-  <!-- JavaScript -->
+ 
+
+  <!-- Firebase Configuration -->
+ <script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+  import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDg1awZVmvK5mZII7DO5sy8HfFeDR9WKII",
+    authDomain: "hospital-web-84363.firebaseapp.com",
+    projectId: "hospital-web-84363",
+    storageBucket: "hospital-web-84363.appspot.com",
+    messagingSenderId: "1077051122221",
+    appId: "1:1077051122221:web:2cddfe8da4da7e42178ea4",
+    measurementId: "G-V23Y8PXEGD"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  document.getElementById("register").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const userid = document.querySelector('input[name="userid"]').value;
+    const email = document.querySelector('input[name="email"]').value;
+
+    try {
+      await addDoc(collection(db, "users"), {
+        userid,
+        email
+      });
+      alert("User registered successfully!");
+      document.getElementById("register").reset();
+    } catch (error) {
+      alert("Error: " + error.message);
+      console.error("Error adding document:", error);
+    }
+  });
+</script>
+
+
   <script>
     var x = document.getElementById("login");
     var y = document.getElementById("register");
@@ -112,8 +152,6 @@
   </script>
 
   <!-- Bootstrap Bundle -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 </body>
-
 </html>
