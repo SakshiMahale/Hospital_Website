@@ -96,9 +96,10 @@
  
 
   <!-- Firebase Configuration -->
- <script type="module">
+<script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
   import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
+  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
 
   const firebaseConfig = {
     apiKey: "AIzaSyDg1awZVmvK5mZII7DO5sy8HfFeDR9WKII",
@@ -112,22 +113,42 @@
 
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
+  const auth = getAuth(app);
 
+  // ✅ Registration
   document.getElementById("register").addEventListener("submit", async (e) => {
     e.preventDefault();
     const userid = document.querySelector('input[name="userid"]').value;
     const email = document.querySelector('input[name="email"]').value;
 
     try {
+      await createUserWithEmailAndPassword(auth, email, "defaultpassword123");
+
       await addDoc(collection(db, "users"), {
         userid,
         email
       });
-      alert("User registered successfully!");
+
+      alert("✅ User registered successfully!");
       document.getElementById("register").reset();
     } catch (error) {
-      alert("Error: " + error.message);
+      alert("❌ Registration error: " + error.message);
       console.error("Error adding document:", error);
+    }
+  });
+
+  // ✅ Login
+  document.getElementById("login").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const email = document.querySelector('#login input[placeholder="Enter email"]').value;
+
+    try {
+      await signInWithEmailAndPassword(auth, email, "defaultpassword123");
+      alert("✅ User logged in successfully!");
+      document.getElementById("login").reset();
+    } catch (error) {
+      alert("❌ Login error: " + error.message);
+      console.error("Login error:", error);
     }
   });
 </script>
