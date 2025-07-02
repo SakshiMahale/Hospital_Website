@@ -137,20 +137,25 @@
     }
   });
 
-  // ✅ Login
-  document.getElementById("login").addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const email = document.querySelector('#login input[placeholder="Enter email"]').value;
+  //login
 
-    try {
-      await signInWithEmailAndPassword(auth, email, "defaultpassword123");
-      alert("✅ User logged in successfully!");
-      document.getElementById("login").reset();
-    } catch (error) {
-      alert("❌ Login error: " + error.message);
-      console.error("Login error:", error);
-    }
-  });
+document.getElementById("login").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const email = document.querySelector('#login input[placeholder="Enter email"]').value;
+
+  try {
+    const userCredential = await signInWithEmailAndPassword(auth, email, "defaultpassword123");
+    const user = userCredential.user;
+
+    alert("✅ User logged in successfully!");
+    
+    // ✅ Redirect to Voice.html with UID in the URL
+    window.location.href = `/templates/Voice.html?uid=${user.uid}`;
+  } catch (error) {
+    alert("❌ Login error: " + error.message);
+    console.error("Login error:", error);
+  }
+});
 </script>
 
 
