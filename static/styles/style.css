@@ -327,8 +327,7 @@
 span {
   color: #000;
   font-size: 12px;
-  bottom: 68px;
-  position: absolute;
+
 }
 
 #login {
@@ -365,12 +364,21 @@ body {
   color: black;
   font-size: 2rem;
   font-weight: 700;
-  margin-bottom: 0.5rem;
+  margin-bottom: 20px;
 }
 
 .header-section p {
   color: rgba(0, 0, 0, 0.6);
   margin-bottom: 2rem;
+}
+
+#userIdDisplay{
+  font-size: 14px;
+}
+
+#qualityValue{
+  color: #fff;
+  font-size: 14px;
 }
 
 .chat-container {
